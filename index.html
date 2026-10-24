@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DR kalid — Clinical Image Library</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-logo" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="i-dash" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="8" rx="2"/><rect x="13.5" y="3.5" width="7" height="5" rx="2"/><rect x="13.5" y="11.5" width="7" height="9" rx="2"/><rect x="3.5" y="14.5" width="7" height="6" rx="2"/></g></symbol>
+  <symbol id="i-lib" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><circle cx="9" cy="10" r="1.6"/><path d="m4 17 5-4.5 3.5 3 3-2.5 5 4"/></g></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5M7.5 9.5 12 5l4.5 4.5M4.5 15v3a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-3"/></g></symbol>
+  <symbol id="i-set" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></g></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></g></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="12" cy="5.5" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="18.5" r="1.6"/></g></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></g></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></g></symbol>
+  <symbol id="i-disk" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="6" rx="7.5" ry="3"/><path d="M4.5 6v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V6M4.5 12v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/></g></symbol>
+  <symbol id="i-dl" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></g></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="i-fit" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></g></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9a2.1 2.1 0 0 0-4-4L4 16z"/></g></symbol>
+</svg>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar" aria-label="Primary">
+    <div class="brand">
+      <span class="brand-mark"><svg class="ic"><use href="#i-logo"/></svg></span>
+      <div><div class="brand-name">DR kalid</div><div class="brand-sub">Clinical Image Library</div></div>
+    </div>
+    <nav class="nav">
+      <button class="nav-item is-active" data-view="dashboard"><svg class="ic"><use href="#i-dash"/></svg>Dashboard</button>
+      <button class="nav-item" data-view="library"><svg class="ic"><use href="#i-lib"/></svg>Image Library</button>
+      <button class="nav-item" data-view="upload"><svg class="ic"><use href="#i-up"/></svg>Upload Images</button>
+      <button class="nav-item" data-view="settings"><svg class="ic"><use href="#i-set"/></svg>Settings</button>
+    </nav>
+    <div class="storage-panel">
+      <div class="label">Storage</div>
+      <div class="bar"><span id="storageBar"></span></div>
+      <div class="storage-text" id="storageText">0 B used</div>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <div class="main-col">
+    <header class="topbar">
+      <button class="icon-btn" id="menuBtn" aria-label="Open menu"><svg class="ic"><use href="#i-list"/></svg></button>
+      <strong>DR kalid</strong>
+      <button class="icon-btn" id="topUpload" aria-label="Upload image"><svg class="ic"><use href="#i-plus"/></svg></button>
+    </header>
+
+    <main class="main" id="main">
+      <section class="page-head">
+        <div>
+          <h1>Clinical Image Library</h1>
+          <p class="subtitle">Your medical references, organized and always within reach.</p>
+        </div>
+        <button class="btn btn-primary" data-open-upload><svg class="ic"><use href="#i-up"/></svg>Upload Image</button>
+      </section>
+
+      <section class="stats" id="statsSection">
+        <article class="stat"><div><div class="label">Total Images</div><div class="stat-val" id="statTotal">0</div></div><span class="stat-ic"><svg class="ic"><use href="#i-lib"/></svg></span></article>
+        <article class="stat"><div><div class="label">Recently Added</div><div class="stat-val" id="statRecent">0</div><div class="small" id="statRecentSub">Last 7 days</div></div><span class="stat-ic"><svg class="ic"><use href="#i-clock"/></svg></span></article>
+        <article class="stat"><div><div class="label">Storage Used</div><div class="stat-val" id="statStorage">0 B</div></div><span class="stat-ic"><svg class="ic"><use href="#i-disk"/></svg></span></article>
+      </section>
+
+      <section id="librarySection">
+        <div class="section-head">
+          <h2>Your Library</h2>
+          <p class="secondary">Find and manage your saved clinical screenshots.</p>
+        </div>
+        <div class="toolbar">
+          <label class="search">
+            <svg class="ic search-ic"><use href="#i-search"/></svg>
+            <input id="searchInput" type="search" placeholder="Search by title…" autocomplete="off" aria-label="Search images by title">
+            <button class="search-clear" id="searchClear" type="button" aria-label="Clear search" hidden><svg class="ic"><use href="#i-x"/></svg></button>
+          </label>
+          <div class="tool-row">
+            <span class="count" id="resultCount" aria-live="polite">0 images</span>
+            <select id="sortSelect" class="select" aria-label="Sort images">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="az">Title A–Z</option>
+              <option value="za">Title Z–A</option>
+              <option value="size">Largest file</option>
+            </select>
+            <div class="seg" role="group" aria-label="View mode">
+              <button id="viewGrid" class="is-active" aria-label="Grid view"><svg class="ic"><use href="#i-grid"/></svg></button>
+              <button id="viewList" aria-label="List view"><svg class="ic"><use href="#i-list"/></svg></button>
+            </div>
+            <button class="btn btn-secondary" data-open-upload><svg class="ic"><use href="#i-plus"/></svg>Upload</button>
+          </div>
+        </div>
+        <div class="grid" id="grid"></div>
+        <div class="empty" id="emptyLibrary" hidden>
+          <svg class="empty-art" viewBox="0 0 160 120" aria-hidden="true"><rect x="22" y="22" width="116" height="80" rx="14" fill="#F2F6F8" stroke="#CBD8DF"/><rect x="38" y="38" width="84" height="48" rx="8" fill="#fff" stroke="#E5EBEF"/><path d="m46 78 20-20 14 12 12-10 22 18" fill="none" stroke="#087F8C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60" cy="50" r="5" fill="#EAF6F6" stroke="#087F8C" stroke-width="2"/><path d="M80 8v14M73 15h14" stroke="#087F8C" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <h3>Your library is ready</h3>
+          <p>Add your first screenshot to start building your clinical reference collection.</p>
+          <button class="btn btn-primary" data-open-upload>Upload Your First Image</button>
+        </div>
+        <div class="empty" id="emptySearch" hidden>
+          <svg class="empty-art" viewBox="0 0 160 120" aria-hidden="true"><circle cx="72" cy="54" r="30" fill="#F2F6F8" stroke="#CBD8DF" stroke-width="2"/><path d="m95 77 24 24" stroke="#087F8C" stroke-width="5" stroke-linecap="round"/><path d="M60 54h24" stroke="#91A0AA" stroke-width="3" stroke-linecap="round"/></svg>
+          <h3>No matching images</h3>
+          <p>Try a different title or keyword.</p>
+        </div>
+      </section>
+
+      <section id="settingsSection" class="settings" hidden>
+        <div class="section-head"><h2>Settings</h2><p class="secondary">Backup, restore and storage information.</p></div>
+        <div class="panel">
+          <h3>Backup</h3>
+          <p class="secondary">Export every image and title to a single JSON file. Browser storage is not guaranteed to be permanent, so keep regular backups.</p>
+          <div class="row"><button class="btn btn-primary" id="exportBtn"><svg class="ic"><use href="#i-dl"/></svg>Export Backup</button></div>
+        </div>
+        <div class="panel">
+          <h3>Restore</h3>
+          <p class="secondary">Importing a backup replaces all images currently in this library.</p>
+          <div class="row"><button class="btn btn-secondary" id="importBtn"><svg class="ic"><use href="#i-up"/></svg>Import Backup</button>
+          <input type="file" id="importFile" accept="application/json,.json" hidden></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<!-- Upload modal -->
+<div class="modal" id="uploadModal" role="dialog" aria-modal="true" aria-labelledby="uploadTitle" hidden>
+  <div class="modal-card">
+    <div class="modal-head"><h2 id="uploadTitle">Upload Image</h2><button class="icon-btn" data-close aria-label="Close"><svg class="ic"><use href="#i-x"/></svg></button></div>
+    <div id="stepSelect">
+      <div class="dropzone" id="dropzone" tabindex="0">
+        <svg class="ic dz-ic"><use href="#i-up"/></svg>
+        <h3>Select your screenshot</h3>
+        <p>Drag an image here or browse your device.</p>
+        <button class="btn btn-secondary" type="button" id="browseBtn">Browse Files</button>
+        <div class="small">Supported formats: JPG, PNG, WebP</div>
+        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" hidden>
+      </div>
+    </div>
+    <div id="stepPreview" hidden>
+      <div class="preview-frame"><img id="previewImg" alt="Selected image preview"></div>
+      <div class="file-meta"><div><div class="file-name" id="fileName"></div><div class="small" id="fileSize"></div></div>
+        <div class="row"><button class="btn btn-secondary btn-sm" id="changeBtn" type="button">Change Image</button><button class="btn btn-ghost-danger btn-sm" id="removeBtn" type="button">Remove Image</button></div></div>
+      <form id="saveForm" novalidate>
+        <label class="field-label" for="titleInput">Image Title</label>
+        <input class="input" id="titleInput" maxlength="120" placeholder="Enter a descriptive title…" autocomplete="off" required>
+        <div class="small hint">Examples: ECG Interpretation, Anatomy Reference, Chest X-Ray</div>
+        <div class="modal-actions"><button class="btn btn-secondary" type="button" data-close>Cancel</button><button class="btn btn-primary" id="saveBtn" type="submit" disabled>Save to Library</button></div>
+      </form>
+    </div>
+    <div class="form-error" id="uploadError" role="alert" hidden></div>
+  </div>
+</div>
+
+<!-- Viewer -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+  <div class="viewer-bar">
+    <input class="viewer-title" id="viewerTitle" aria-label="Image title" maxlength="120">
+    <div class="viewer-tools">
+      <button class="icon-btn dark" id="zOut" aria-label="Zoom out"><svg class="ic"><use href="#i-minus"/></svg></button>
+      <span class="zoom-val" id="zoomVal">100%</span>
+      <button class="icon-btn dark" id="zIn" aria-label="Zoom in"><svg class="ic"><use href="#i-plus"/></svg></button>
+      <button class="icon-btn dark" id="zFit" aria-label="Fit to screen"><svg class="ic"><use href="#i-fit"/></svg></button>
+      <button class="chip-btn" id="zReset">Reset</button>
+      <button class="icon-btn dark" id="vDownload" aria-label="Download original"><svg class="ic"><use href="#i-dl"/></svg></button>
+      <button class="icon-btn dark" id="vClose" aria-label="Close viewer"><svg class="ic"><use href="#i-x"/></svg></button>
+    </div>
+  </div>
+  <div class="viewer-stage" id="stage"><img id="viewerImg" alt="" draggable="false"></div>
+</div>
+
+<!-- Dialog -->
+<div class="modal" id="dialog" role="alertdialog" aria-modal="true" aria-labelledby="dlgTitle" hidden>
+  <div class="modal-card small-card">
+    <h2 id="dlgTitle"></h2><p class="secondary" id="dlgText"></p>
+    <input class="input" id="dlgInput" hidden maxlength="120">
+    <div class="modal-actions"><button class="btn btn-secondary" id="dlgCancel">Cancel</button><button class="btn btn-primary" id="dlgOk">OK</button></div>
+  </div>
+</div>
+
+<div class="menu" id="menu" role="menu" hidden>
+  <button role="menuitem" data-act="view">View</button>
+  <button role="menuitem" data-act="rename">Rename</button>
+  <button role="menuitem" data-act="delete" class="danger">Delete</button>
+</div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
